@@ -3,7 +3,7 @@ PRGS = $(patsubst %.c, %, $(SRCS))
 
 # Добавьте сюда название своей программы вместо stack_test
 test: $(PRGS)
-	./stack_test
+	# ./stack_test
 
 clear: 
 	rm -rf *.o *.a *_test

@@ -7,7 +7,7 @@
 stack *stack_init(int max_size) {
   stack *st = (stack *)malloc(sizeof(stack));
   st->data = malloc(sizeof(int) * max_size);
-  st->max_size = max_size-1;
+  st->max_size = max_size - 1;
   st->size = -1;
   return st;
 }

@@ -17,7 +17,7 @@ void stack_overflow_test() {
   stack *st = stack_init(2);
   push(st, 2);
   push(st, 3);
-  int res = push(st,4);
+  int res = push(st, 4);
 
   assert(res == STACK_OVERFLOW);
 }
@@ -26,7 +26,7 @@ void stack_pushpop_test() {
   stack *st = stack_init(2);
   push(st, 5);
   int res = pop(st);
-  
+
   assert(res == 5);
 }
 

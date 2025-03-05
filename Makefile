@@ -1,9 +1,8 @@
 SRCS = $(wildcard *_test.c)
 PRGS = $(patsubst %.c, %, $(SRCS))
 
-# Добавьте сюда название своей программы вместо stack_test
 test: $(PRGS)
-	# ./stack_test
+	./list_test
 
 clear: 
 	rm -rf *.o *.a *_test

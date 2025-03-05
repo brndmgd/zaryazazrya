@@ -42,7 +42,7 @@ void delete_by_element_test() {
 
   add_in_begin(&begin, 1);
   add_in_end(&begin, 3);
-  add_by_index(&begin, 1);
+  add_by_index(&begin, 2, 1);
 
   delete_by_element(&begin, 1);
   print_list(begin);
@@ -58,7 +58,7 @@ void delete_by_index_test() {
   add_in_end(&begin, 3);
   add_by_index(&begin, 2, 0);
 
-  delete_by_index(&begin, 0);
+  delete_by_index(&begin, 1);
   print_list(begin);
 
   int res = begin->data;

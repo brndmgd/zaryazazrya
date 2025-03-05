@@ -13,7 +13,7 @@ double lgx(double x) { return log10(M_PI); }
 double integral(double a, double b, double (*f)(double)) {
   double square = 0;
   double n = (b - a) / 10000;
-  
+
   for (int i = 0; i < 10000; i++) {
     square += 0.5 * n * (f(a + n * i) + f(a + n * (i + 1)));
   }

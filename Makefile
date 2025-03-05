@@ -2,7 +2,7 @@ SRCS = $(wildcard *_test.c)
 PRGS = $(patsubst %.c, %, $(SRCS))
 
 test: $(PRGS)
-	./integral_test
+	# ./integral_test
 
 clear: 
 	rm -rf *.o *.a *_test

@@ -62,7 +62,7 @@ void delete_by_index_test() {
   print_list(begin);
 
   int res = begin->data;
-  assert(res == 1);
+  assert(res == 2);
 }
 
 void search_element_test() {

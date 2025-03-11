@@ -110,7 +110,7 @@ int count(node *begin) {
     number++;
     current = current->next;
   }
-  printf("Количество элементов: %d\n", number);
+  printf("Количество элементов в списке: %d\n", number);
   return number;
 }
 

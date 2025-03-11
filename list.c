@@ -2,46 +2,54 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void addInBeggin(node **begin, int value) {
-  node *newNode = (node *)malloc(sizeof(node));
-  newNode->data = value;
-  newNode->next = *begin;
-  *begin = newNode;
+void add_in_begin(node **begin, int value) {
+  node *new_node = (node *)malloc(sizeof(node));
+  new_node->data = value;
+  new_node->next = *begin;
+  *begin = new_node;
 }
 
-void addInEnd(node **begin, int value) {
-  node *newNode = (node *)malloc(sizeof(node));
-  newNode->data = value;
-  newNode->next = NULL;
+void add_in_end(node **begin, int value) {
+  node *new_node = (node *)malloc(sizeof(node));
+  new_node->data = value;
+  new_node->next = NULL;
   if (*begin == NULL) {
-    addInBeggin(begin, value);
+    add_in_begin(begin, value);
     return;
   }
   node *last = *begin;
   while (last->next != NULL) {
     last = last->next;
   }
-  last->next = newNode;
+  last->next = new_node;
 }
 
-void addAfterIndex(node **begin, int value, int index) {
-  node *newNode = (node *)malloc(sizeof(node));
+void add_by_index(node **begin, int value, int index) {
+  node *new_node = (node *)malloc(sizeof(node));
+  new_node->data = value;
+  new_node->next = NULL;
+  if (index == 0) {
+    new_node->next = *begin;
+    *begin = new_node;
+    return;
+  }
   node *current = *begin;
-  for (int i = 0; i < index; i++) {
-    if (current != NULL) {
+  node *pervious = NULL;
+  if (current != NULL) {
+    for (int i = 0; i < index - 1; i++) {
+      pervious = current;
       current = current->next;
     }
   }
   if (current == NULL) {
-    addInEnd(begin, value);
-    return;
+    pervious->next = new_node;
+  } else {
+    new_node->next = current->next;
+    current->next = new_node;
   }
-  newNode->data = value;
-  newNode->next = current->next;
-  current->next = newNode;
 }
 
-void deleteElement(node **begin, int value) {
+void delete_by_element(node **begin, int value) {
   node *current = *begin;
   node *previous = NULL;
   while (current != NULL && current->data != value) {
@@ -55,9 +63,31 @@ void deleteElement(node **begin, int value) {
   } else {
     *begin = current->next;
   }
+  free(current);
 }
 
-int searchElement(node *begin, int index) {
+void delete_by_index(node **begin, int index) {
+  node *current = *begin;
+  node *pervious = NULL;
+  if (index == 0 && current != NULL) {
+    *begin = current->next;
+    return;
+  }
+  for (int i = 0; i < index; i++) {
+    if (current != NULL) {
+      pervious = current;
+      current = current->next;
+    }
+  }
+  if (current == NULL) {
+    return;
+  } else {
+    pervious->next = current->next;
+  }
+  free(current);
+}
+
+int search_element(node *begin, int index) {
   node *current = begin;
   for (int i = 0; i < index; ++i) {
     if (current != NULL) {
@@ -83,7 +113,7 @@ int count(node *begin) {
   return number;
 }
 
-void printList(node *begin) {
+void print_list(node *begin) {
   node *p = begin;
   while (p != NULL) {
     printf("%d ", p->data);

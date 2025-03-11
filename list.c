@@ -84,10 +84,7 @@ void delete_by_index(node **begin, int index) {
   } else {
     pervious->next = current->next;
   }
-<<<<<<< HEAD
   free(current);
-=======
->>>>>>> 9a7657986525298cefb7fc0e8081c10e16f1eb54
 }
 
 int search_element(node *begin, int index) {

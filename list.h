@@ -5,16 +5,18 @@ typedef struct node_ {
   struct node_ *next;
 } node;
 
-void addInBeggin(node **, int);
+void add_in_begin(node **, int);
 
-void addInEnd(node **, int);
+void add_in_end(node **, int);
 
-void addAfterIndex(node **, int, int);
+void add_by_index(node **, int, int);
 
-void deleteElement(node **, int);
+void delete_by_element(node **, int);
 
-int searchElement(node *, int);
+void delete_by_index(node **, int);
+
+int search_element(node *, int);
 
 int count(node *);
 
-void printList(node *);
+void print_list(node *);

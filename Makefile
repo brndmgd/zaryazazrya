@@ -1,7 +1,6 @@
 SRCS = $(wildcard *_test.c)
 PRGS = $(patsubst %.c, %, $(SRCS))
 
-# Добавьте сюда название своей программы вместо stack_test
 test: $(PRGS)
 	@for test in $(PRGS); do \
 		./$$test || exit 1; \

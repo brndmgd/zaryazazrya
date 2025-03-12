@@ -20,7 +20,7 @@ void stack_overflow_test() {
   free(st);
 }
 
-void stack_pushpop_test() {
+void stack_push_pop_test() {
   stack *st = stack_init(2);
   push(st, 5);
   int res = pop(st);
@@ -37,7 +37,7 @@ void stack_empty_test() {
   free(st);
 }
 
-void stack_notempty_test() {
+void stack_not_empty_test() {
   stack *st = stack_init(2);
   push(st, 2);
   bool res = is_empty(st);
@@ -50,9 +50,9 @@ int main() {
 
   stack_underflow_test();
   stack_overflow_test();
-  stack_pushpop_test();
+  stack_push_pop_test();
   stack_empty_test();
-  stack_notempty_test();
+  stack_not_empty_test();
 
   return 0;
 }

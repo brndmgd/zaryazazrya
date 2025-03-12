@@ -1,6 +1,5 @@
 #include "stack.h"
 
-
 stack *stack_init(int max_size) {
   stack *st = (stack *)malloc(sizeof(stack));
   st->data = malloc(sizeof(int) * max_size);
@@ -35,7 +34,7 @@ int peek(stack *st) {
     st->underflow = 0;
     return -2;
   }
-  return st->data[st->size-1];
+  return st->data[st->size - 1];
 }
 
 bool is_empty(stack *st) {

@@ -34,7 +34,7 @@ int peek(stack *st) {
     st->underflow = true;
     return STACK_UNDERFLOW;
   }
-  return st->data[st->size-1];
+  return st->data[st->size - 1];
 }
 
 bool is_empty(stack *st) {

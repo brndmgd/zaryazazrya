@@ -1,9 +1,14 @@
 #include <stdbool.h>
+#include <stdlib.h>
+#define STACK_OVERFLOW -1
+#define STACK_UNDERFLOW -2
 
 typedef struct {
-  int max_size;
+  size_t max_size;
   int *data;
-  int size;
+  size_t size;
+  bool overflow;
+  bool underflow;
 } stack;
 
 stack *stack_init(int);

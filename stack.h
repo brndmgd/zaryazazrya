@@ -1,9 +1,12 @@
 #include <stdbool.h>
+#include <stdlib.h>
 
 typedef struct {
-  int max_size;
+  size_t max_size;
   int *data;
-  int size;
+  size_t size;
+  bool overflow;
+  bool underflow;
 } stack;
 
 stack *stack_init(int);

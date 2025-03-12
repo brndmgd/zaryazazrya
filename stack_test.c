@@ -1,16 +1,13 @@
 #include "stack.h"
 #include <assert.h>
-#include <stdbool.h>
 #include <stdio.h>
-#include <stdlib.h>
-#define STACK_UNDERFLOW -100
-#define STACK_OVERFLOW -101
 
 void stack_underflow_test() {
   stack *st = stack_init(2);
   int res = pop(st);
 
-  assert(res == STACK_UNDERFLOW);
+  assert(st->underflow == true && res == -2);
+  free(st);
 }
 
 void stack_overflow_test() {
@@ -19,7 +16,8 @@ void stack_overflow_test() {
   push(st, 3);
   int res = push(st, 4);
 
-  assert(res == STACK_OVERFLOW);
+  assert(st->overflow == true && res == -1);
+  free(st);
 }
 
 void stack_pushpop_test() {
@@ -28,6 +26,7 @@ void stack_pushpop_test() {
   int res = pop(st);
 
   assert(res == 5);
+  free(st);
 }
 
 void stack_empty_test() {
@@ -35,6 +34,7 @@ void stack_empty_test() {
   bool res = is_empty(st);
 
   assert(res == true);
+  free(st);
 }
 
 void stack_notempty_test() {
@@ -43,6 +43,7 @@ void stack_notempty_test() {
   bool res = is_empty(st);
 
   assert(res == false);
+  free(st);
 }
 
 int main() {
@@ -52,7 +53,6 @@ int main() {
   stack_pushpop_test();
   stack_empty_test();
   stack_notempty_test();
-  printf("stack success\n");
 
   return 0;
 }

@@ -26,3 +26,4 @@ check_fmt:
 
 %_test: %_test.o %.a
 	gcc -g -static -o $@ $^ -lm
+	

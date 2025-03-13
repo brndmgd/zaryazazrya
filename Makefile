@@ -2,7 +2,7 @@ SRCS = $(wildcard *_test.c)
 PRGS = $(patsubst %.c, %, $(SRCS))
 
 test: $(PRGS)
-	@for test in $(PRGS); do \
+	for test in $(PRGS); do \
 		./$$test || exit 1; \
 	done;
 

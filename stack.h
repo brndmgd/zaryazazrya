@@ -4,9 +4,9 @@
 #define STACK_UNDERFLOW -2
 
 typedef struct {
-  size_t max_size;
-  int *data;
   size_t size;
+  size_t top;
+  int *data;
   bool overflow;
   bool underflow;
 } stack;
@@ -20,3 +20,5 @@ int pop(stack *);
 int peek(stack *);
 
 bool is_empty(stack *);
+
+void stack_free(stack *);

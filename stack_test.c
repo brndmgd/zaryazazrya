@@ -7,7 +7,7 @@ void stack_underflow_test() {
   int res = pop(st);
 
   assert(st->underflow == true && res == -2);
-  free(st);
+  stack_free(st);
 }
 
 void stack_overflow_test() {
@@ -17,7 +17,7 @@ void stack_overflow_test() {
   int res = push(st, 4);
 
   assert(st->overflow == true && res == -1);
-  free(st);
+  stack_free(st);
 }
 
 void stack_push_pop_test() {
@@ -26,7 +26,7 @@ void stack_push_pop_test() {
   int res = pop(st);
 
   assert(res == 5);
-  free(st);
+  stack_free(st);
 }
 
 void stack_empty_test() {
@@ -34,7 +34,7 @@ void stack_empty_test() {
   bool res = is_empty(st);
 
   assert(res == true);
-  free(st);
+  stack_free(st);
 }
 
 void stack_not_empty_test() {
@@ -43,7 +43,7 @@ void stack_not_empty_test() {
   bool res = is_empty(st);
 
   assert(res == false);
-  free(st);
+  stack_free(st);
 }
 
 int main() {

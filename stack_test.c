@@ -6,7 +6,7 @@ void stack_underflow_test() {
   stack *st = stack_init(2);
   int res = pop(st);
 
-  assert(st->underflow == true && res == -2);
+  assert(st->underflow == true && res == STACK_UNDERFLOW);
   stack_free(st);
 }
 
@@ -16,7 +16,7 @@ void stack_overflow_test() {
   push(st, 3);
   int res = push(st, 4);
 
-  assert(st->overflow == true && res == -1);
+  assert(st->overflow == true && res == STACK_OVERFLOW);
   stack_free(st);
 }
 

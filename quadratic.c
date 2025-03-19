@@ -7,7 +7,8 @@ double is_zero(double x, double eps) {
   return x;
 }
 
-int roots(double a, double b, double c, double eps, double epsD, double *x1, double *x2) {
+int roots(double a, double b, double c, double eps, double epsD, double *x1,
+          double *x2) {
 
   double D = b * b - 4 * a * c;
   D = is_zero(D, epsD);
@@ -19,8 +20,7 @@ int roots(double a, double b, double c, double eps, double epsD, double *x1, dou
   else if (fabs(D) < epsD) {
     *x1 = is_zero(-b / (2 * a), eps);
     return One_Roots;
-  } 
-  else {
+  } else {
     *x1 = (-b + sqrt(D)) / (2 * a);
     *x2 = c / (*x1 * a);
     return Two_Roots;

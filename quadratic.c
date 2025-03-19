@@ -19,11 +19,10 @@ int roots(double a, double b, double c, double eps, double epsD, double *x1, dou
   else if (fabs(D) < epsD) {
     *x1 = is_zero(-b / (2 * a), eps);
     return One_Roots;
-  } else {
+  } 
+  else {
     *x1 = (-b + sqrt(D)) / (2 * a);
     *x2 = c / (*x1 * a);
-    if (fabs(*x1 - *x2) < eps)
-      return One_Roots;
     return Two_Roots;
   }
 }

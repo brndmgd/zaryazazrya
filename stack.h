@@ -7,8 +7,6 @@ typedef struct {
   size_t size;
   size_t top;
   int *data;
-  bool overflow;
-  bool underflow;
 } stack;
 
 stack *stack_init(int);

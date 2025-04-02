@@ -34,13 +34,7 @@ int peek(stack *st, int *res) {
   return SUCCESS;
 }
 
-bool is_empty(stack *st) {
-  if (st->top == 0) {
-    return true;
-  } else {
-    return false;
-  }
-}
+bool is_empty(stack *st) { return !st->top; }
 
 void stack_free(stack *st) {
   free(st->data);

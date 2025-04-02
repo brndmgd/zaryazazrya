@@ -3,6 +3,7 @@ PRGS = $(patsubst %.c, %, $(SRCS))
 
 test: $(PRGS)
 	for test in $(PRGS); do \
+		echo "Running $$test"; \
 		./$$test || exit 1; \
 	done;
 

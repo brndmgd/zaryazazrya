@@ -14,22 +14,24 @@ int push(stack *st, int value) {
   }
   st->data[st->top] = value;
   st->top++;
-  return 0;
+  return SUCCESS;
 }
 
-int pop(stack *st) {
+int pop(stack *st, int *res) {
   if (st->top == 0) {
     return STACK_UNDERFLOW;
   }
   st->top--;
-  return st->data[st->top];
+  *res = st->data[st->top];
+  return SUCCESS;
 }
 
-int peek(stack *st) {
+int peek(stack *st, int *res) {
   if (st->top == 0) {
     return STACK_UNDERFLOW;
   }
-  return st->data[st->top - 1];
+  *res = st->data[st->top - 1];
+  return SUCCESS;
 }
 
 bool is_empty(stack *st) {

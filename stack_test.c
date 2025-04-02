@@ -4,9 +4,10 @@
 
 void stack_underflow_test() {
   stack *st = stack_init(2);
-  int res = pop(st);
+  int res;
+  int code = pop(st, &res);
 
-  assert(res == STACK_UNDERFLOW);
+  assert(code == STACK_UNDERFLOW);
   stack_free(st);
 }
 
@@ -14,9 +15,9 @@ void stack_overflow_test() {
   stack *st = stack_init(2);
   push(st, 2);
   push(st, 3);
-  int res = push(st, 4);
+  int code = push(st, 4);
 
-  assert(res == STACK_OVERFLOW);
+  assert(code == STACK_OVERFLOW);
   stack_free(st);
 }
 
@@ -32,18 +33,20 @@ void stack_push_test() {
 void stack_pop_test() {
   stack *st = stack_init(2);
   push(st, 5);
-  int res = pop(st);
+  int res;
+  int code = pop(st, &res);
 
-  assert(res == 5);
+  assert(code == SUCCESS && res == 5);
   stack_free(st);
 }
 
 void stack_peek_test() {
   stack *st = stack_init(2);
   push(st, 5);
-  int res = peek(st);
+  int res;
+  int code = peek(st, &res);
 
-  assert(res == 5);
+  assert(code == SUCCESS && res == 5);
   stack_free(st);
 }
 

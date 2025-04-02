@@ -1,9 +1,16 @@
 #include "list.h"
 #include <assert.h>
-#include <stdio.h>
+
+void list_create_test() {
+  node *list = list_create(1);
+
+  assert(list != NULL);
+  assert(list->data == 1);
+  list_free(list);
+}
 
 void add_in_begin_test() {
-  node *list = NULL;
+  node *list = list_create(5);
   add_in_begin(&list, 1);
 
   assert(list->data == 1);
@@ -11,8 +18,7 @@ void add_in_begin_test() {
 }
 
 void add_in_end_test() {
-  node *list = NULL;
-  add_in_end(&list, 2);
+  node *list = list_create(5);
   add_in_end(&list, 3);
 
   assert(list->next->data == 3);
@@ -20,7 +26,7 @@ void add_in_end_test() {
 }
 
 void add_by_index_test() {
-  node *list = NULL;
+  node *list = list_create(5);
   add_by_index(&list, 1, 0);
   add_by_index(&list, 2, 1);
 
@@ -29,9 +35,8 @@ void add_by_index_test() {
 }
 
 void delete_by_index_test() {
-  node *list = NULL;
+  node *list = list_create(5);
   add_in_begin(&list, 1);
-  add_in_end(&list, 3);
   add_by_index(&list, 2, 0);
   delete_by_index(&list, 1);
 
@@ -40,7 +45,7 @@ void delete_by_index_test() {
 }
 
 void search_element_test() {
-  node *list = NULL;
+  node *list = list_create(5);
   add_in_begin(&list, 1);
   add_in_end(&list, 3);
   add_by_index(&list, 2, 1);
@@ -51,17 +56,18 @@ void search_element_test() {
 }
 
 void count_test() {
-  node *list = NULL;
+  node *list = list_create(5);
   add_in_begin(&list, 1);
   add_in_end(&list, 3);
   add_by_index(&list, 2, 1);
   int number = count(list);
 
-  assert(number == 3);
+  assert(number == 4);
   list_free(list);
 }
 
 int main() {
+  list_create_test();
   add_in_begin_test();
   add_in_end_test();
   add_by_index_test();

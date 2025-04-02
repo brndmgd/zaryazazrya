@@ -1,18 +1,21 @@
 #include "list.h"
-#include <stdio.h>
 #include <stdlib.h>
 
-void add_in_begin(node **head, int value) {
+node *list_create(int data) {
   node *new_node = (node *)malloc(sizeof(node));
-  new_node->data = value;
+  new_node->data = data;
+  new_node->next = NULL;
+  return new_node;
+}
+
+void add_in_begin(node **head, int value) {
+  node *new_node = list_create(value);
   new_node->next = *head;
   *head = new_node;
 }
 
 void add_in_end(node **head, int value) {
-  node *new_node = (node *)malloc(sizeof(node));
-  new_node->data = value;
-  new_node->next = NULL;
+  node *new_node = list_create(value);
   if (*head == NULL) {
     add_in_begin(head, value);
     return;
@@ -25,9 +28,7 @@ void add_in_end(node **head, int value) {
 }
 
 void add_by_index(node **head, int value, int index) {
-  node *new_node = (node *)malloc(sizeof(node));
-  new_node->data = value;
-  new_node->next = NULL;
+  node *new_node = list_create(value);
   if (index == 0) {
     new_node->next = *head;
     *head = new_node;
@@ -66,6 +67,7 @@ void delete_by_index(node **head, int index) {
   } else {
     pervious->next = current->next;
   }
+  free(current);
 }
 
 int search_element(node *head, int index) {

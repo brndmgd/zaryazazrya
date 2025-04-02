@@ -1,7 +1,11 @@
+#include <stdio.h>
+
 typedef struct node_ {
   int data;
   struct node_ *next;
 } node;
+
+node *list_create(int);
 
 void add_in_begin(node **, int);
 

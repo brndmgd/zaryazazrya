@@ -18,7 +18,7 @@ int roots(double a, double b, double c, double eps, double epsD, double *x1,
   else if (fabs(a) < eps)
     return Not_Quadratic_Equation;
   else if (fabs(D) < epsD) {
-    *x1 = is_zero(-b / (2 * a), eps);
+    *x1 = -b / (2 * a);
     return One_Roots;
   } else {
     *x1 = (-b + sqrt(D)) / (2 * a);

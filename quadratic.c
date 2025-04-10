@@ -7,17 +7,17 @@ double is_zero(double x, double eps) {
   return x;
 }
 
-int roots(double a, double b, double c, double eps, double epsD, double *x1,
+int roots(double a, double b, double c, double eps, double *x1,
           double *x2) {
 
   double D = b * b - 4 * a * c;
-  D = is_zero(D, epsD);
+  D = is_zero(D, eps);
 
   if (D < 0)
     return No_Substantial_Roots;
   else if (fabs(a) < eps)
     return Not_Quadratic_Equation;
-  else if (fabs(D) < epsD) {
+  else if (fabs(D) < eps) {
     *x1 = -b / (2 * a);
     return One_Roots;
   } else {

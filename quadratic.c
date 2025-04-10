@@ -7,8 +7,7 @@ double is_zero(double x, double eps) {
   return x;
 }
 
-int roots(double a, double b, double c, double eps, double *x1,
-          double *x2) {
+int roots(double a, double b, double c, double eps, double *x1, double *x2) {
 
   double D = b * b - 4 * a * c;
   D = is_zero(D, eps);

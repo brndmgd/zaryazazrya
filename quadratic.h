@@ -1,6 +1,6 @@
 #include <math.h>
 
-#define No_Substantial_Roots -1
+#define No_Real_Roots -1
 #define Not_Quadratic_Equation -2
 #define One_Roots 1
 #define Two_Roots 2

@@ -13,7 +13,7 @@ int roots(double a, double b, double c, double eps, double *x1, double *x2) {
   D = is_zero(D, eps);
 
   if (D < 0)
-    return No_Substantial_Roots;
+    return No_Real_Roots;
   else if (fabs(a) < eps)
     return Not_Quadratic_Equation;
   else if (fabs(D) < eps) {

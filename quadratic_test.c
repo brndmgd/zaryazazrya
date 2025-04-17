@@ -31,7 +31,6 @@ void square_test_4() {
   double x1, x2;
   double a = 1, b = 0, c = -1e-7, eps = 1e-7, epsQ = 1e-4;
   int res = roots(a, b, c, eps, &x1, &x2);
-  printf("x1=%f, x2=%f\n", x1, x2);
   assert(res == 2 && fabs(x1 - 3e-4) < epsQ && fabs(x2 + 3e-4) < epsQ);
 }
 

@@ -1,18 +1,11 @@
 #include "quadratic.h"
 #include <math.h>
 
-double is_zero(double x, double eps) {
-  if (x == -0 || fabs(x) < eps)
-    return 0;
-  return x;
-}
-
 int roots(double a, double b, double c, double eps, double *x1, double *x2) {
 
   double D = b * b - 4 * a * c;
-  D = is_zero(D, eps);
 
-  if (D < 0)
+  if (D < -eps)
     return No_Real_Roots;
   else if (fabs(a) < eps)
     return Not_Quadratic_Equation;

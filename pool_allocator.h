@@ -1,8 +1,10 @@
 #include <stdlib.h>
 
-typedef struct {
-  struct chunk_t *next;
-} chunk_t;
+typedef struct chunk_t chunk_t;
+
+struct chunk_t {
+  chunk_t *next;
+};
 
 typedef struct {
   size_t chunk_count;

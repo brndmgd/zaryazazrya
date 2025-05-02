@@ -20,9 +20,9 @@ typedef struct
 
 unsigned long hash_function(const char* str);
 
-void hash_table_init(HashTable* table, size_t capacity, pool_allocator_t* allocator);
+void hashtable_init(HashTable* table, size_t capacity, pool_allocator_t* allocator);
 
-void hash_table_insert(HashTable* table, const char* key, void* value);
+void hashtable_insert(HashTable* table, const char* key, void* value);
 
 void* hashtable_get(HashTable* table, const char* key);
 

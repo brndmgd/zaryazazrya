@@ -8,7 +8,6 @@ void test_arraylist_init() {
   assert(list.count == 0);
   assert(list.capacity == 1);
   arraylist_free(&list);
-  linear_free(alloc);
 }
 
 void test_arraylist_add_int() {
@@ -21,7 +20,6 @@ void test_arraylist_add_int() {
   assert(*(int *)arraylist_get(&list, 0) == 10);
   assert(*(int *)arraylist_get(&list, 1) == 20);
   arraylist_free(&list);
-  linear_free(alloc);
 }
 
 void test_arraylist_add_char() {
@@ -34,7 +32,6 @@ void test_arraylist_add_char() {
   assert(*(char *)arraylist_get(&list, 0) == 'a');
   assert(*(char *)arraylist_get(&list, 1) == 'b');
   arraylist_free(&list);
-  linear_free(alloc);
 }
 
 void test_arraylist_get_int() {
@@ -46,7 +43,6 @@ void test_arraylist_get_int() {
   assert(*(int *)arraylist_get(&list, 0) == 52);
   assert(arraylist_get(&list, 1) == NULL);
   arraylist_free(&list);
-  linear_free(alloc);
 }
 
 void test_arraylist_get_char() {
@@ -58,7 +54,6 @@ void test_arraylist_get_char() {
   assert(*(char *)arraylist_get(&list, 0) == 'c');
   assert(arraylist_get(&list, 2) == NULL);
   arraylist_free(&list);
-  linear_free(alloc);
 }
 
 void test_arraylist_del_int() {
@@ -71,7 +66,6 @@ void test_arraylist_del_int() {
   arraylist_del(&list, 0);
   assert(*(int *)arraylist_get(&list, 0) == 6);
   arraylist_free(&list);
-  linear_free(alloc);
 }
 
 void test_arraylist_del_char() {
@@ -86,7 +80,6 @@ void test_arraylist_del_char() {
   assert(list.count == 1);
   assert(*(char *)arraylist_get(&list, 0) == 'a');
   arraylist_free(&list);
-  linear_free(alloc);
 }
 
 int main() {

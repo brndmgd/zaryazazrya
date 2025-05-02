@@ -27,4 +27,4 @@ check_fmt:
 	gcc -g -c $^ -o $@
 
 %_test: %_test.o $(LIBS)
-	gcc -g -static -o $@ $^ -lm
+

@@ -28,4 +28,33 @@
         return hash;
     }
     
+    void hash_table_insert(HashTable* table, const char* key, void* value) {
+        if (table == NULL || key == NULL) {
+            return;
+        }
+    
+        unsigned long hash = hash_function(key);
+        size_t index = hash % table->bucket_count;
+    
+        HashNode* node = table->buckets[index];
+        while (node != NULL) {
+            if (strcmp(node->key, key) == 0) {
+                node->value = value;
+                return;
+            }
+            node = node->next;
+        }
+    
+        HashNode* new_node = (entry_t*)pool_alloc(table->allocator);
+        if (new_node == NULL) {
+            return;
+        }
+    
+        new_node->key = key;
+        new_node->value = value;
+        new_node->next = table->buckets[index];
+        table->buckets[index] = new_node;
+    }
+
+
     

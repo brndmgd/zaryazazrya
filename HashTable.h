@@ -14,5 +14,6 @@ typedef struct
     pool_allocator_t *allocator;
 } HashTable;
 
-void hashtable_init(HashTable* table, size_t capacity, pool_allocator_t* allocator)
+void hash_table_init(HashTable* table, size_t capacity, pool_allocator_t* allocator)
 
+void hash_table_insert(HashTable* table, const char* key, void* value)

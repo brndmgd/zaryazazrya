@@ -2,7 +2,7 @@
 #include "HashTable.h"
 #include <string.h>
 
-    void hash_table_init(HashTable* table, size_t capacity, pool_allocator_t* allocator){
+    void hashtable_init(HashTable* table, size_t capacity, pool_allocator_t* allocator){
         if (table == NULL || allocator == NULL || capacity == 0) {
             return;
         }
@@ -29,7 +29,7 @@
         return hash;
     }
     
-    void hash_table_insert(HashTable* table, const char* key, void* value) {
+    void hashtable_insert(HashTable* table, const char* key, void* value) {
         if (table == NULL || key == NULL) {
             return;
         }

@@ -103,4 +103,22 @@
             node = node->next;
         }
     }
- 
+
+    void hashtable_free(HashTable* table) {
+        if (table == NULL) {
+            return;
+        }
+    
+        for (size_t i = 0; i < table->bucket_count; ++i) {
+            HashNode* node = table->buckets[i];
+            while (node != NULL) {
+                HashNode* temp = node;
+                node = node->next;
+                pool_free(table->allocator, temp);
+            }
+        }
+    
+        pool_free(table->allocator, table->buckets);
+    
+        pool_free(table->allocator, table);
+    }

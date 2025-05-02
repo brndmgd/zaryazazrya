@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
-void hashtable_init(HashTable* table, size_t capacity, Allocator* allocator){
-    void hashtable_init(HashTable* table, size_t capacity, pool_allocator_t* allocator){
+
+    void hash_table_init(HashTable* table, size_t capacity, pool_allocator_t* allocator){
         if (table == NULL || allocator == NULL || capacity == 0) {
             return;
         }
@@ -18,4 +18,14 @@ void hashtable_init(HashTable* table, size_t capacity, Allocator* allocator){
             table->buckets[i] = NULL;
         }
     }
-}
+
+    unsigned long hash_function(const char* str) {
+        unsigned long hash = 5381;
+        int c;
+        while ((c = *str++)) {
+            hash = ((hash << 5) + hash) + c;
+        }
+        return hash;
+    }
+    
+    

@@ -1,5 +1,6 @@
 #include <stdlib.h>
-
+#include "HashTable.h"
+#include <string.h>
 
     void hash_table_init(HashTable* table, size_t capacity, pool_allocator_t* allocator){
         if (table == NULL || allocator == NULL || capacity == 0) {

@@ -45,7 +45,7 @@
             node = node->next;
         }
     
-        HashNode* new_node = (entry_t*)pool_alloc(table->allocator);
+        HashNode* new_node = (HashNode*)pool_alloc(table->allocator);
         if (new_node == NULL) {
             return;
         }
@@ -56,5 +56,23 @@
         table->buckets[index] = new_node;
     }
 
+    void* hashtable_get(HashTable* table, const char* key) {
+        if (table == NULL || key == NULL) {
+            return NULL;
+        }
+    
+        unsigned long hash = hash_function(key);
+        size_t index = hash % table->bucket_count;
+    
+        HashNode* node = table->buckets[index];
+        while (node != NULL) {
+            if (strcmp(node->key, key) == 0) {
+                return node->value;
+            }
+            node = node->next;
+        }
+    
+        return NULL;
+    }
 
     

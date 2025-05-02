@@ -75,4 +75,32 @@
         return NULL;
     }
 
+    void hashtable_del(HashTable* table, const char* key) {
+        if (table == NULL || key == NULL) {
+            return;
+        }
     
+        unsigned long hash = hash_function(key);
+        size_t index = hash % table->bucket_count;
+    
+        HashNode* prev = NULL;
+        HashNode* node = table->buckets[index];
+    
+        while (node != NULL) {
+            if (strcmp(node->key, key) == 0) {
+                if (prev == NULL) {
+                    
+                    table->buckets[index] = node->next;
+                }
+                else {
+                    
+                    prev->next = node->next;
+                }
+                pool_free(table->allocator, node);
+                return;
+            }
+            prev = node;
+            node = node->next;
+        }
+    }
+ 

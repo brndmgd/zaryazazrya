@@ -19,3 +19,5 @@ void hash_table_init(HashTable* table, size_t capacity, pool_allocator_t* alloca
 void hash_table_insert(HashTable* table, const char* key, void* value)
 
 void* hashtable_get(HashTable* table, const char* key)
+
+void hashtable_del(HashTable* table, const char* key)

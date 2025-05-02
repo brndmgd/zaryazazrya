@@ -1,4 +1,8 @@
+#ifndef HASHTABLE_H
+#define HASHTABLE_H
+
 #include <stdlib.h>
+#include "pool_allocator.h"
 
 typedef struct HashNode
 {
@@ -14,12 +18,16 @@ typedef struct
     pool_allocator_t *allocator;
 } HashTable;
 
-void hash_table_init(HashTable* table, size_t capacity, pool_allocator_t* allocator)
+unsigned long hash_function(const char* str);
 
-void hash_table_insert(HashTable* table, const char* key, void* value)
+void hash_table_init(HashTable* table, size_t capacity, pool_allocator_t* allocator);
 
-void* hashtable_get(HashTable* table, const char* key)
+void hash_table_insert(HashTable* table, const char* key, void* value);
 
-void hashtable_del(HashTable* table, const char* key)
+void* hashtable_get(HashTable* table, const char* key);
 
-void hashtable_free(HashTable* table)
+void hashtable_del(HashTable* table, const char* key);
+
+void hashtable_free(HashTable* table);
+
+#endif

@@ -1,5 +1,6 @@
 SRCS = $(wildcard *_test.c)
 PRGS = $(patsubst %.c, %, $(SRCS))
+LIBS = $(patsubst %_test.c, %.a, $(SRCS))
 
 test: $(PRGS)
 	for test in $(PRGS); do \
@@ -25,5 +26,5 @@ check_fmt:
 %_test.o: %_test.c
 	gcc -g -c $^ -o $@
 
-%_test: %_test.o %.a
+%_test: %_test.o $(LIBS)
 	gcc -g -static -o $@ $^ -lm

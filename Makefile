@@ -27,4 +27,8 @@ check_fmt:
 	gcc -g -c $^ -o $@
 
 %_test: %_test.o $(LIBS)
+<<<<<<< HEAD
+=======
+	gcc -g -static -o $@ $^ -lm
+>>>>>>> 0b8db00 (chore: update branch after rebase)
 

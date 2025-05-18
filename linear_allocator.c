@@ -37,4 +37,3 @@ void linear_free(linear_allocator *allocator) {
   free(allocator->block_memory);
   free(allocator);
 }
-

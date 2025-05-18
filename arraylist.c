@@ -73,4 +73,3 @@ void arraylist_free(arraylist *list) {
     list->count = list->capacity = list->element_size = 0;
   }
 }
-

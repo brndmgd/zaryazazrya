@@ -28,3 +28,9 @@ check_fmt:
 
 %_test: %_test.o $(LIBS)
 	gcc -g -static -o $@ $^ -lm
+
+valgrind:
+	@for test in $(PRGS); do \
+		echo "Valgrind checking $$test"; \
+		valgrind --leak-check=full --error-exitcode=1 ./$$test; \
+	done;

@@ -32,5 +32,5 @@ check_fmt:
 valgrind:
 	@for test in $(PRGS); do \
 		echo "Valgrind checking $$test"; \
-		valgrind --leak-check=full --errors-for-leak-kinds=all --undef-value-errors=no --error-exitcode=1 ./$$test;
+		valgrind --leak-check=full --errors-for-leak-kinds=all --undef-value-errors=no --error-exitcode=1 ./$$test; \
 	done;

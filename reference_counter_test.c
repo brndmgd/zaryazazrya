@@ -93,4 +93,3 @@ int main() {
   default_dtor_and_ctor_test();
   return 0;
 }
-

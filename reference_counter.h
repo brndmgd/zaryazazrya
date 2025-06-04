@@ -16,4 +16,3 @@ ref_count_t *rc_init(void *obj, pool_allocator_t *allocator, constructor ctor,
 void rc_increase(ref_count_t *rc);
 void rc_decrease(ref_count_t *rc, pool_allocator_t *allocator);
 void default_dtor(void *object, pool_allocator_t *allocator);
-
